@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="DAM Island | Dapps and Games on TRON">
+        <meta name="author" content="DAM Island">
+        <title>DAM Island | Crypto</title>
+
+        <!-- Alertify CSS -->
+        <link rel="stylesheet" href="assets/css/alertify.min.css">
+        <link rel="stylesheet" href="assets/css/themes/bootstrap.min.css">
+        
+        <!-- Core CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/custom.css">
+        
+        <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/f352960784.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <body class="text-white">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark blackNavbar fixed-top">
+                <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" width="25px" height="25px" class="rounded-circle" /> DAMIsland</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="divs.html"><span><i class="fas fa-hand-holding-usd text-white"></i> Crypto</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#monitorModal"><span><i class="far fa-clock text-white"></i> Monitor</span></a></li>
+                    </ul>
+                
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt text-white"></i> Social</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="https://twitter.com/DAMIsland"><i class="fab fa-twitter"></i> Twitter</a>
+                                <a class="dropdown-item" href="https://t.me/DAMIsland"><i class="fab fa-telegram"></i> Telegram</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="https://discord.gg/FmCEbPU"><i class="fab fa-discord"></i> Discord</a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-info-circle text-white"></i> <span>Info</span></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="faqs.html"><i class="fas fa-question text-dark"></i> FAQs</a>
+                                <a class="dropdown-item" href="https://github.com/DAMIsland" target="_blank"><i class="fab fa-github text-dark"></i> <span>GitHub</span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#onboardModal"><i class="fas fa-wallet text-dark"></i> Wallets</a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item"><a class="nav-link"  href="#" data-toggle="modal" data-target="#myNameModal"><i class="fas fa-user text-white"></i> <span class="arcTag">User</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="row jumbotron glassPanel" style="margin-top: 55px;">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col text-center">
+                            <img src="assets/img/beluga.png" width="100px" height="100px" class="rounded-circle" />
+                            <h3><span>Crypto Game</span></h3>
+                            <small class="text-white">Buy &amp; HODL Crypto, and earn BNB Dividends!</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container" id="root">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="card glassPanel roundedCorners">
+                            <div class="card-header text-center">Please remember, this is trading & investment! Only trade or invest with BNB as soon as your ready! <a href="#" data-toggle="modal" data-target="#termsModal">More Info &gt;</a></div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card glassPanel silverBorder roundedCorners">
+                            <div class="card-header">My Crypto <small>(Approx. <span id="supplyPercentage">0</span>&#37; of the Total Supply)</small></div>
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <h3>
+                                                <img src="assets/img/beluga.png" width="25px" height="25px" /><br />
+                                                <span class="user-token-balance text-white"><img src="assets/img/loading.svg" /></span> Crypto
+                                            </h3>
+                                            <p>
+                                                <span id="user-BNB-balance"><img src="assets/img/loading.svg" width="13px" height="13px" /></span> BNB ($<span id="user-usd-balance" class="text-white"><img src="assets/img/loading.svg" width="13px" height="13px" /></span> USD)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <a class="btn btn-block btn-md btn-dark silverBorder text-white roundedCorners" href="#" data-toggle="modal" data-target="#sendDivsModal"><i class="fas fa-arrow-up"></i> Send</a>
+                                        </div>
+
+                                        <div class="col text-center">
+                                            <a class="btn btn-block btn-md btn-dark silverBorder text-white roundedCorners" href="#" data-toggle="modal" data-target="#receiveDivsModal"><i class="fas fa-arrow-down"></i> Receive</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card glassPanel silverBorder roundedCorners">
+                            <div class="card-header">My Dividends</div>
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <h3 class="text-white">
+                                                <img src="assets/img/tron.png" width="25px" height="25px" /><br />
+                                                <span class="user-dividends"><img src="assets/img/loading.svg" width="18px" height="18px" /></span> BNB
+                                            </h3>
+                                            <p>
+                                                <span id="user-reinvest">0.00</span> Crypto (&#36;<span id="user-dividends-usd" class="text-white"><img src="assets/img/loading.svg" width="18px" height="18px" /></span> USD)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <button class="btn btn-block btn-dark silverBorder text-white btn-reinvest roundedCorners"><b><i class="fas fa-recycle"></i> Reinvest</b></button>
+                                        </div>
+
+                                        <div class="col text-center">
+                                            <button class="btn btn-block btn-dark silverBorder text-white btn-withdraw roundedCorners"><i class="fas fa-hand-holding-usd"></i> Withdraw</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card glassPanel silverBorder roundedCorners text-left">
+                            <div class="card-header">Buy Crypto</div>
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <small>Current Price:</small>
+                                            <h1 class="text-white"><img src="assets/img/tron.png" width="35px" height="35px" /> <span id="rate-to-buy"><img src="assets/img/loading.svg" width="18px" height="18px" /></span> BNB</h1>
+                                            <small>&#36;<span id="usdPriceOfOne">0</span> USD</small>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <!-- BNB Buy Input -->
+                                        <div class="col text-center">
+                                            <label class="text-left">BNB to Spend:</label>
+                                            <input type="number" class="form-control roundedCorners buy-input" min="1" step="1" placeholder="BNB to spend" onkeypress="return event.charCode >= 48 && event.charCode <= 57" title="Numbers only" />
+                                            <b class="text-center">WHOLE NUMBERS ONLY, NO DECIMALS</b><br />
+                                            <small>Every Crypto purchase incurs a 10&#37; Dividend Fee.</small>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <label>Approx. Crypto:</label>
+                                            <input type="text" class="form-control roundedCorners text-dark token-input-buy" readonly="" value="0.00000000">
+                                        </div>
+                                        
+                                        <div class="col text-left">
+                                            <label>USD Value:</label>
+                                            <input type="text" class="form-control roundedCorners text-dark" placeholder="USD Value" id="usdBuyValue" readonly="" />
+                                            <small>&#42;Approx. only</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="container">
+                                    <div class="row">
+                                        <button class="btn btn-block btn-lg btn-success btn-buy buy-token-button roundedCorners" id="buyTokensButton" style="display: none;">Buy Crypto</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card glassPanel silverBorder roundedCorners text-left">
+                            <div class="card-header">Sell Crypto</div>
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <small>Current Value:</small>
+                                            <h1 class="text-white"><img src="assets/img/tron.png" width="35px" height="35px" /> <span id="rate-to-sell"><img src="assets/img/loading.svg" width="18px" height="18px" /></span> BNB</h1>
+                                            <small>&#36;<span id="usdValueOfOne">0</span> USD</small>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <label class="text-left">Crypto to Sell:</label>
+                                            <input type="number" class="form-control roundedCorners sell-input" min="1" step="1" placeholder="Amount of Crypto" onkeypress="return event.charCode >= 48 && event.charCode <= 57" title="Numbers only">
+                                            <b class="text-center">WHOLE NUMBERS ONLY, NO DECIMALS</b><br />
+                                            <small>Every Crypto sale incurs a 10&#37; Dividend Fee.</small>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <label>BNB Value:</label>
+                                            <input type="text" class="form-control roundedCorners token-input-sell" readonly="" value="0.00000000">
+                                        </div>
+                                        
+                                        <div class="col text-left">
+                                            <label>USD Value:</label>
+                                            <input type="text" class="form-control roundedCorners" placeholder="USD Value" id="usdSellValue" readonly="" />
+                                            <small>&#42;Approx. only</small>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                            </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="container">
+                                    <div class="row">
+                                        <button id="sellButton" class="btn btn-block btn-lg btn-danger btn-buy sell-token-button roundedCorners" style="display: none;">Sell Crypto</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-block btn-lg btn-light whiteBorder roundedCorners"  href="#" data-toggle="modal" data-target="#rainmakerModal"><i class="fas fa-tint"></i> Price Floor</a><br />
+                    </div>
+
+                    <div class="col-md-6">
+                        <a class="btn btn-block btn-lg btn-light whiteBorder roundedCorners" href="https://tronscan.org/#/contract/TJ9KV8DdVhVbPAMWVHEHYnXBA4vqLwk6Jr/code" target="_blank"><i class="fas fa-search-dollar"></i> View Contract</a><br />
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row jumbotron glassPanel silverBorder roundedCorners text-dark">
+                    <div class="container">
+                        <div class="row"><div class="col text-white text-center"><h3>Contract Value Data</h3></div></div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <br />
+                                <h3 class="text-danger">
+                                    <span class="badge badge-pill badge-danger">
+                                        <span id="contract-BNB-balance"><img src="assets/img/loading.svg" width="13px" height="13px" /></span> BNB
+                                    </span>
+                                </h3>
+                                <p class="text-white">Contract Holdings</p>
+                            </div>
+                            
+                            <div class="col text-center">
+                                <br />
+                                <h3 class="text-white">
+                                    <span class="badge badge-pill badge-success">
+                                        &#36;<span style="display: inline" id="supply-value-usd"><img src="assets/img/loading.svg" width="13px" height="13px" /></span> USD
+                                    </span>
+                                </h3>
+                                <p class="text-white">USD Value</p>
+                            </div>
+
+                            <div class="col text-center">
+                                <br />
+                                <h3 class="text-white">
+                                    <span class="badge badge-pill badge-light">
+                                        <span style="display: inline" id="contract-token-balance"><img src="assets/img/loading.svg" width="13px" height="13px" /></span> DIVS
+                                    </span>
+                                </h3>
+                                <p class="text-white">Total Supply</p>
+                            </div>
+                            
+                            <div class="col text-center">
+                                <br />
+                                <h3 class="text-danger">
+                                    <span class="badge badge-pill badge-warning">
+                                        <span id="supply-value-btc"><img src="assets/img/loading.svg" width="13px" height="13px" /></span> BTC
+                                    </span>
+                                </h3>
+                                <p class="text-white">Game value (in BTC)</p>
+                            </div>
+                            
+                            <div class="col text-center">
+                                <br />
+                                <h3 class="text-danger">
+                                    <span class="badge badge-pill badge-info">
+                                        <span id="supply-value-eth"><img src="assets/img/loading.svg" width="13px" height="13px" /></span> ETH
+                                    </span>
+                                </h3>
+                                <p class="text-white">Game value (in ETH)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer id="theFooter" class="py-5 px-5 glassPanel silverBorder rcTop text-white">
+            <div class="row">
+                <div class="col text-center">
+                    <b>Terms of Use</b>
+                    <small class="d-block mb-3 text-white">
+                        &quot;DAM Island&quot;, is provided on an &quot;As-Is&quot; basis, with zero guarantee of bug-free operation, profit or stability.<br />
+                        The Dapps and games hosted on this site have <b>NOT</b> been audited - rigorous public audit is encouraged!<br />
+                        You should only use or deposit funds you are willing to lose on DAM Island.<br />
+                        <b>NOBODY EXCEPT YOU</b> will be held responsible for any losses you may incur as a result of using DAM Island.
+                    </small>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Bottom Nav -->
+        <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark" style="background-color: rgba(0,0,0,1);">
+            <ul class="navbar-nav mr-auto ml-auto">
+                <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+                <coingecko-coin-price-marquee-widget  coin-ids="tron,sun-token,tether,just-stablecoin,bitcoin,ethereum" currency="usd" background-color="#000000" locale="en" font-color="#ffffff"></coingecko-coin-price-marquee-widget>
+            </ul>
+        </nav>
+
+        <!-- MODALS -->
+        <div class="modal" id="sendDivsModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark roundedCorners">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title text-white">Send Crypto</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Quantity</label>
+                                    <input type="text" class="form-control roundedCorners transfer-input" placeholder="Crypto to Send..." />
+                                </div>
+                                <div class="col-md-8">
+                                    <label>Recipient Address</label>
+                                    <input type="text" class="form-control roundedCorners recipient-input" placeholder="Address to send Crypto to..." />
+                                </div>
+                            </div>
+                            <br />
+                                
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button class="btn btn-info btn-block roundedCorners btn-sell transfer-token-button"><i class="fas fa-arrow-up"></i> Send Crypto <i class="fas fa-arrow-up"></i></button>
+                                    <small>Sending Crypto incurs a 10&#37; Dividend Fee from the total sent.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="receiveDivsModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark roundedCorners">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Receive Crypto</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <img id="qrImage" src="#" class="roundedCorners" alt="Your Crop Address as a QR Code"><br />
+                                    <small>Scan this QR Code to tip <span class="arcTag">Player</span>!</small>
+                                    <br />
+                                    <br />
+                                    <b>TRON Address: </b><br />
+                                    <small id="myTronAddr"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-block -md btn-danger roundedCorners" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="termsModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark roundedCorners">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Terms of Use</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <p>
+                                        &quot;DAM Island&quot;, is provided on an &quot;As-Is&quot; basis, with zero guarantee of bug-free operation, profit or stability.<br />
+                                        The Dapps and games hosted on this site have <b>NOT</b> been audited - You should only use or deposit funds you are willing to lose on DAM Island.<br />
+                                        <b>NOBODY EXCEPT YOU</b> will be held responsible for any losses you may incur as a result of using DAM Island.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-block -md btn-danger roundedCorners" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="rainmakerModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark roundedCorners">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Price Floor</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <h3>
+                                        <img src="assets/img/tron.png" width="25px" height="25px" /><br />
+                                        <span id="rainmakerDividends">0</span> BNB
+                                    </h3>
+                                    <small>Pricefloor Earnings</small>
+                                </div>
+                                
+                                <div class="col text-center">
+                                    <h3>
+                                        <img src="assets/img/logo.png" width="25px" height="25px" /><br />
+                                        <span id="rainmakerTokens">0</span> Crypto
+                                    </h3>
+                                    <small>Providing Permanent Value</small>
+                                </div>
+                            </div>
+                            
+                            <hr />
+                            
+                            <div class="row">
+                                <div class="col text-center">
+                                    <h3><img src="assets/img/tron.png" width="20px" height="20px" /> <span id="floorBNB">0</span> BNB</h3>
+                                    <small>BNB Value</small>
+                                </div>
+                                
+                                <div class="col text-center">
+                                    <h3><img src="assets/img/dollar.png" width="20px" height="20px" /> &#36;<span id="floor-value-usd">0</span></h3>
+                                    <small>USD Value</small>
+                                </div>
+                            </div>
+                            
+                            <hr />
+                            
+                            <div class="row">
+                                <div class="col text-center">
+                                    <h3><span id="supplyFloorPercentage">0</span>&#37;</h3>
+                                    <small>Held by PriceFloor</small>
+                                </div>
+                            </div>
+                            
+                            <hr />
+                            
+                            <div class="row">
+                                <div class="col text-center">
+                                    <br />
+                                    <small>
+                                        The button below tells the PriceFloor contract to buy as much Crypto as it can with the Dividends it has earned. This has the effect of raising the minimum price which Crypto will ever be sold at - and since the Price Floor contract can never sell, transfer or destroy its Crypto, this minimum value will only grow larger over time as the Crypto platform is used.
+                                    </small>
+                                    <br />
+                                    <br />
+                                    <button id="makeItRainTx" class="btn btn-block btn-md btn-success roundedCorners" href="#">Raise Price Floor</button><br />
+                                    <a class="btn btn-block btn-md btn-light roundedCorners" href="https://tronscan.org/#/contract/TRrLSZknfHCS8ejYoffGsH5EeRQ4WwT2Mt/code" target="_blank">View Pricefloor Contract</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-block -md btn-danger roundedCorners" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="myNameModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark roundedCorners blueBorder">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-white">Edit Username</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <label class="text-white">Enter a name: </label>
+                                    <input type="text" name="newUsername" id="newUsername" onchange="checkAvailability()" class="form-control roundedCorners" placeholder="Enter your desired Username" />
+                                    <small>Max. 12 Letters/numbers, no spaces!</small>
+                                    <hr />
+                                    <p class="text-center">Username Available: <span id="availableStatus" class="text-white"></span></p>
+                                </div>
+                            </div>
+                                
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button onclick="checkAvailability()" class="btn btn-block btn-md btn-warning roundedCorners">Check Availability</button>
+                                </div>
+                                        
+                                <div id="registerButtonArea" class="col text-center" style="display: none;">
+                                    <button onclick="registerName()" class="btn btn-block btn-md btn-success roundedCorners">Register (25 BNB)</button>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+
+                    <div class="modal-footer text-white">
+                        <button type="button" class="btn btn-danger roundedCorners" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="onboardModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark roundedCorners blueBorder">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-white">Get a Wallet</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center"><img src="assets/img/computer.png" width="150px" height="150px" /></div>
+                                <div class="col text-center"><br /><img src="assets/img/phone.png" width="100px" height="105px" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    
+                                    <small>
+                                        If you are visiting DAM Island on a computer, you will need to install the TronLink extension for Chrome or Firefox. To get the best out of DAM Island on your mobile device, you will need to download an app like Klever Wallet.
+                                    </small>
+                                </div>
+                            </div>
+                            <br />
+                                
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://www.tronlink.org/" target="_blank" class="btn btn-block btn-md btn-success roundedCorners">TronLink</a>
+                                </div>
+                                        
+                                <div id="registerButtonArea" class="col text-center">
+                                    <a href="https://klever.io/" target="_blank" class="btn btn-block btn-md btn-success roundedCorners">Klever Wallet</a>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+
+                    <div class="modal-footer text-white">
+                        <button type="button" class="btn btn-danger roundedCorners" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="monitorModal">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark roundedCorners blueBorder">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-white">Crypto Monitor</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center"><img src="assets/img/tron.png" width="200px" height="200px" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <small>
+                                        Crypto Monitor is a specialised Telegram channel, which enables you to follow the action of every Buy, Sell, Reinvest and Withdraw of the game! Price and value of Crypto is reported with every action, too - so you won't miss a thing!<br />
+                                        <br />
+                                        It is recommended to mute the channel, or you might end up with lots of notifications very quickly!
+                                    </small>
+                                </div>
+                            </div>
+                            <br />
+                                
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://www.t.me/CryptoFeed" target="_blank" class="btn btn-block btn-md btn-success roundedCorners">Join the Channel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer text-white">
+                        <button type="button" class="btn btn-danger roundedCorners" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/alertify.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+        
+		<script src="assets/dapps/hourglass.js"></script>
+        <script src="assets/dapps/usernameSystem/nameRegistry.js"></script>
+        <script>main()</script>
+        
+	   <script type="text/javascript">
+           var clipboard = new ClipboardJS('#copyButton');
+
+           clipboard.on('success', DAM(e) {
+               console.log(e);
+               alertify.success('Copied Link');
+           });
+
+           clipboard.on('error', DAM(e) {
+               console.log(e);
+               alertify.error('Did not Copy Link');
+           });
+           
+			DAM getCookie(name) {
+				var dc = document.cookie;
+				var prefix = name + "=";
+				var begin = dc.indexOf("; " + prefix);
+
+				if (begin == -1) {
+                    begin = dc.indexOf(prefix);
+                    if (begin != 0) return null;
+                } else {
+                    begin += 2;
+					var end = document.cookie.indexOf(";", begin);
+					if (end == -1) {
+                        end = dc.length;
+                    }
+                }
+
+                return decodeURI(dc.substring(begin + prefix.length, end));
+            }
+
+           var url_string = window.location.href;
+           var url = new URL(url_string);
+           var theCookie = "masternode=" + url.searchParams.get("masternode");
+
+           if (url.searchParams.get("masternode") !== null) {
+               var toSet = "masternode=" + url.searchParams.get("masternode");
+               console.log(url.searchParams.get("masternode"));
+               document.cookie=theCookie;
+           } else {
+
+               var refCookie = getCookie("masternode");
+               console.log(refCookie);
+               if (refCookie === null) {
+                   console.log("Ref cookie was null. Setting to default.");
+                   document.cookie = "masternode=TRrLSZknfHCS8ejYoffGsH5EeRQ4WwT2Mt";
+               } else {
+                   // do nothing if the cookie is already set and there is no new mnode link
+               }
+			 }
+		  </script>
+          <script src="assets/js/web3.min.js"></script>
+    <script>
+      // Initialize Web3
+
+      var functionnamecontractContract = new web3.eth.Contract([{"constant":false,"inputs":[{"name":"name","type":"string"}],"name":"registerName","outputs":[{"name":"_success","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"nameFundReceiver","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"collectFunds","outputs":[{"name":"_success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_for","type":"address"},{"name":"name","type":"string"}],"name":"registerNameFor","outputs":[{"name":"_success","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"addr","type":"address"}],"name":"getNameByAddress","outputs":[{"name":"name","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"name","type":"string"}],"name":"isAvailable","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"name","type":"string"}],"name":"getAddressByName","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"namePrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"nameBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"addr","type":"address"},{"indexed":false,"name":"name","type":"string"}],"name":"Register","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"addr","type":"address"},{"indexed":false,"name":"funds","type":"uint256"}],"name":"FundsCollected","type":"event"}]);
+var functionnamecontract = functionnamecontractContract.deploy({
+     data: '0x608060405234801561001057600080fd5b5060008054600160a060020a0319163317905563017d78406001556110778061003a6000396000f3006080604052600436106100985763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630830602b811461009d578063431409ba146100fd5780635b9806281461012e5780637be07c70146101435780637c80bb4f1461019d578063965306aa146102335780639a65ddec1461028c578063b22073b6146102e5578063c3bbe33b1461030c575b600080fd5b6040805160206004803580820135601f81018490048402850184019095528484526100e99436949293602493928401919081908401838280828437509497506103219650505050505050565b604080519115158252519081900360200190f35b34801561010957600080fd5b50610112610756565b60408051600160a060020a039092168252519081900360200190f35b34801561013a57600080fd5b506100e9610765565b60408051602060046024803582810135601f81018590048502860185019096528585526100e9958335600160a060020a031695369560449491939091019190819084018382808284375094975061080d9650505050505050565b3480156101a957600080fd5b506101be600160a060020a0360043516610c50565b6040805160208082528351818301528351919283929083019185019080838360005b838110156101f85781810151838201526020016101e0565b50505050905090810190601f1680156102255780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561023f57600080fd5b506040805160206004803580820135601f81018490048402850184019095528484526100e9943694929360249392840191908190840183828082843750949750610cfa9650505050505050565b34801561029857600080fd5b506040805160206004803580820135601f8101849004840285018401909552848452610112943694929360249392840191908190840183828082843750949750610d929650505050505050565b3480156102f157600080fd5b506102fa610e03565b60408051918252519081900360200190f35b34801561031857600080fd5b506102fa610e0a565b6000606061032d610e03565b341461033857600080fd5b825160201015610392576040805160e560020a62461bcd02815260206004820181905260248201527f6e616d65206d757374206265206665776572207468616e203332206279746573604482015290519081900360640190fd5b8251600311156103ec576040805160e560020a62461bcd02815260206004820152601e60248201527f6e616d65206d757374206265206d6f7265207468616e20332062797465730000604482015290519081900360640190fd5b6103f583610e0f565b151561040057600080fd5b6000600160a060020a03166003846040518082805190602001908083835b6020831061043d5780518252601f19909201916020918201910161041e565b51815160209384036101000a6000190180199092169116179052920194855250604051938490030190922054600160a060020a03169290921491506104ce9050576040805160e560020a62461bcd02815260206004820152600b60248201527f6e616d6520696e20757365000000000000000000000000000000000000000000604482015290519081900360640190fd5b33600090815260026020818152604092839020805484516001821615610100026000190190911693909304601f81018390048302840183019094528383529192908301828280156105605780601f1061053557610100808354040283529160200191610560565b820191906000526020600020905b81548152906001019060200180831161054357829003601f168201915b505050505090506000815111156105ff5760006003826040518082805190602001908083835b602083106105a55780518252601f199092019160209182019101610586565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03949094169390931790925550505b336000908152600260209081526040909120845161061f92860190610fbd565b50336003846040518082805190602001908083835b602083106106535780518252601f199092019160209182019101610634565b51815160209384036101000a6000190180199092169116179052920194855250604080519485900382018520805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0397909716969096179095553380855284820186815289519686019690965288517f6ba0831d2f62ae5cbf7214bcc1d79c5da1d705f12811efda0beaa840006f874e9691958a95509350909160608401919085019080838360005b838110156107125781810151838201526020016106fa565b50505050905090810190601f16801561073f5780820380516001836020036101000a031916815260200191505b50935050505060405180910390a150600192915050565b600054600160a060020a031681565b600080548190600160a060020a0316331461077f57600080fd5b5060008054604051303192600160a060020a03909216916108fc841502918491818181858888f193505050501580156107bc573d6000803e3d6000fd5b5060005460408051600160a060020a0390921682526020820183905280517f067e335270006737485da9eba56ed0753a5339fffc5dc1b53ea849447c98db549281900390910190a1600191505b5090565b60006060610819610e03565b341461082457600080fd5b82516020101561087e576040805160e560020a62461bcd02815260206004820181905260248201527f6e616d65206d757374206265206665776572207468616e203332206279746573604482015290519081900360640190fd5b8251600311156108d8576040805160e560020a62461bcd02815260206004820152601e60248201527f6e616d65206d757374206265206d6f7265207468616e20332062797465730000604482015290519081900360640190fd5b6108e183610e0f565b15156108ec57600080fd5b6000600160a060020a03166003846040518082805190602001908083835b602083106109295780518252601f19909201916020918201910161090a565b51815160209384036101000a6000190180199092169116179052920194855250604051938490030190922054600160a060020a03169290921491506109ba9050576040805160e560020a62461bcd02815260206004820152600b60248201527f6e616d6520696e20757365000000000000000000000000000000000000000000604482015290519081900360640190fd5b600160a060020a038416600090815260026020818152604092839020805484516001821615610100026000190190911693909304601f8101839004830284018301909452838352919290830182828015610a555780601f10610a2a57610100808354040283529160200191610a55565b820191906000526020600020905b815481529060010190602001808311610a3857829003601f168201915b50505050509050600081511115610af45760006003826040518082805190602001908083835b60208310610a9a5780518252601f199092019160209182019101610a7b565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03949094169390931790925550505b600160a060020a03841660009081526002602090815260409091208451610b1d92860190610fbd565b50836003846040518082805190602001908083835b60208310610b515780518252601f199092019160209182019101610b32565b51815160209384036101000a6000190180199092169116179052920194855250604080519485900382018520805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03978816179055948916845283810185815288519585019590955287517f6ba0831d2f62ae5cbf7214bcc1d79c5da1d705f12811efda0beaa840006f874e958a958a955093509160608401919085019080838360005b83811015610c0b578181015183820152602001610bf3565b50505050905090810190601f168015610c385780820380516001836020036101000a031916815260200191505b50935050505060405180910390a15060019392505050565b600160a060020a038116600090815260026020818152604092839020805484516001821615610100026000190190911693909304601f81018390048302840183019094528383526060939091830182828015610ced5780601f10610cc257610100808354040283529160200191610ced565b820191906000526020600020905b815481529060010190602001808311610cd057829003601f168201915b505050505090505b919050565b6000610d0582610e0f565b15610d8a576000600160a060020a03166003836040518082805190602001908083835b60208310610d475780518252601f199092019160209182019101610d28565b51815160209384036101000a6000190180199092169116179052920194855250604051938490030190922054600160a060020a0316929092149250610cf5915050565b506000919050565b60006003826040518082805190602001908083835b60208310610dc65780518252601f199092019160209182019101610da7565b51815160209384036101000a6000190180199092169116179052920194855250604051938490030190922054600160a060020a0316949350505050565b6001545b90565b303190565b60008060005b8351821015610fb1578382815181101515610e2c57fe5b01602001517f0100000000000000000000000000000000000000000000000000000000000000908190040290507f3000000000000000000000000000000000000000000000000000000000000000600160f860020a0319821610801590610ebd57507f3900000000000000000000000000000000000000000000000000000000000000600160f860020a0319821611155b158015610f2b57507f4100000000000000000000000000000000000000000000000000000000000000600160f860020a0319821610801590610f2957507f5a00000000000000000000000000000000000000000000000000000000000000600160f860020a0319821611155b155b8015610f9857507f6100000000000000000000000000000000000000000000000000000000000000600160f860020a0319821610801590610f9657507f7a00000000000000000000000000000000000000000000000000000000000000600160f860020a0319821611155b155b15610fa65760009250610fb6565b600190910190610e15565b600192505b5050919050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610ffe57805160ff191683800117855561102b565b8280016001018555821561102b579182015b8281111561102b578251825591602001919060010190611010565b5061080992610e079250905b8082111561080957600081556001016110375600a165627a7a7230582086a203ca179ad790066234a6f07ea01998ced76dbc685b1c622d8eb61cc7afa80029', 
+     arguments: [
+     ]
+}).send({
+     from: web3.eth.accounts[0], 
+     gas: '4700000'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
+      
+
+      // Set Account
+      web3.eth.defaultAccount = web3.eth.accounts[0];
+
+      // Set Contract Abi
+      var contractAbi = [
+      [
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "registerName",
+		"outputs": [
+			{
+				"name": "_success",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "nameFundReceiver",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "collectFunds",
+		"outputs": [
+			{
+				"name": "_success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_for",
+				"type": "address"
+			},
+			{
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "registerNameFor",
+		"outputs": [
+			{
+				"name": "_success",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "getNameByAddress",
+		"outputs": [
+			{
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "isAvailable",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "getAddressByName",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "namePrice",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "nameBalance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "Register",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "funds",
+				"type": "uint256"
+			}
+		],
+		"name": "FundsCollected",
+		"type": "event"
+	}
+]; // Add Your Contract ABI here!!!
+
+      // Set Contract Address
+      var contractAddress = '0x6eAf2C2466dEaE20CaB3c9C7c795E2B1ce314e61'; // Add Your Contract address here!!!
+
+      // Set the Contract
+      var contract = web3.eth.contract(contractAbi).at(contractAddress);
+    </script>
+
+    </body>
+</html>
